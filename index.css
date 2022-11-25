@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-color: #1F2937;
     color: white;
+    font-family: 'Share Tech', sans-serif;
 }
 .container{
     width: 550px;
@@ -54,10 +55,21 @@ span {
     background: #273549;
     border-radius: 6px;
     color: #55F991;
-    text-align: center    
+    text-align: center;
 }
 
 .includeSection > *{
     display: block;
     line-height: 25px
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
