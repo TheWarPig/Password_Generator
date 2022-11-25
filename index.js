@@ -7,12 +7,23 @@ const noSymbols = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O",
 
 const onlyLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-let generateBtnEl = document.getElementById("generate")
-let password1El = document.getElementById("password1-el")
-let password2El = document.getElementById("password2-el")
-let passwords = document.querySelectorAll(".password")
+const generateBtnEl = document.getElementById("generate")
+const password1El = document.getElementById("password1-el")
+const password2El = document.getElementById("password2-el")
+const passwords = document.querySelectorAll(".password")
+const passwordLengthEl = document.getElementById("passwordLength-el")
+
 
 generateBtnEl.addEventListener("click", function generate() {
+
+    let passwordLength = passwordLengthEl.value
+
+    if  (passwordLength > 20){
+        let maxLengthEl = document.getElementById("maxLength-el")
+        maxLengthEl.style.color = "red"
+        return
+    }
+
     let includeNumbers = document.getElementById("numbers").checked
     let includeSymbols = document.getElementById("symbols").checked
 
@@ -28,12 +39,11 @@ generateBtnEl.addEventListener("click", function generate() {
     if (includeNumbers === false && includeSymbols === false) {
         generatePasswords(...onlyLetters)
     }
-    // console.log(includeNumbers)
-    // console.log(includeSymbols)
 })
 
 
 function generatePasswords(...pool) {
+
     let passwordLength = document.getElementById("passwordLength-el").value
     let password1 =""
     let password2 =""
