@@ -16,14 +16,6 @@ const passwordLengthEl = document.getElementById("passwordLength-el")
 
 generateBtnEl.addEventListener("click", function generate() {
 
-    let passwordLength = passwordLengthEl.value
-
-    if  (passwordLength > 20){
-        let maxLengthEl = document.getElementById("maxLength-el")
-        maxLengthEl.style.color = "red"
-        return
-    }
-
     let includeNumbers = document.getElementById("numbers").checked
     let includeSymbols = document.getElementById("symbols").checked
 
